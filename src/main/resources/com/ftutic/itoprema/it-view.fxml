@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="496.0" minWidth="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ftutic.itoprema.ITController">
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+                  <VBox alignment="CENTER" prefHeight="118.0" prefWidth="132.0" spacing="13.0">
+                     <children>
+                        <Button fx:id="btnAddMis" mnemonicParsing="false" onAction="#addMouse" prefHeight="25.0" prefWidth="111.0" text="Dodaj Miš" />
+                        <Button fx:id="btnAddTipkovnica" mnemonicParsing="false" onAction="#addKeyboard" prefHeight="25.0" prefWidth="111.0" text="Dodaj Tipkovnicu" />
+                        <Button fx:id="btnAddMonitor" mnemonicParsing="false" onAction="#addMonitor" prefHeight="25.0" prefWidth="111.0" text="Dodaj Monitor" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
+                     </padding>
+                  </VBox>
+            <Separator orientation="VERTICAL" prefHeight="60.0" prefWidth="10.0" />
+                  <VBox alignment="CENTER" prefHeight="118.0" prefWidth="353.0" HBox.hgrow="ALWAYS">
+                     <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Ograniči cijenu:" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="12.0" />
+                           </VBox.margin></Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" VBox.vgrow="ALWAYS">
+                           <children>
+                                    <Button fx:id="btnSort2HILo" mnemonicParsing="false" onAction="#switchVece" prefHeight="25.0" prefWidth="75.0" text="Veće" />
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="30.0" text="od:">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                                    <TextField fx:id="tbCijena" prefHeight="25.0" prefWidth="252.0" HBox.hgrow="ALWAYS">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin></TextField>
+                           </children></HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="53.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="btnSort2Execute1" alignment="CENTER" mnemonicParsing="false" onAction="#sort" prefHeight="25.0" prefWidth="75.0" text="Sortiraj!" />
+                                    <Button fx:id="btnSort2Reset" alignment="CENTER" mnemonicParsing="false" onAction="#unsort" prefHeight="25.0" prefWidth="75.0" text="Desortiraj!" />
+                     </children>
+                  </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" />
+                     </padding>
+                  </VBox>
+            <Separator orientation="VERTICAL" prefHeight="49.0" prefWidth="8.0" />
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="118.0" prefWidth="161.0" spacing="13.0">
+               <children>
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#deleteSelected" prefHeight="25.0" prefWidth="145.0" text="Obriši Označen Zapis" />
+                  <Button fx:id="btnIzmjeni" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="146.0" text="Izmjeni Označen Zapis" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
+               </padding>
+            </VBox>
+         </children></HBox>
+   </top>
+   <center>
+          <TableView fx:id="table" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#getInfo" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn fx:id="colID" prefWidth="68.0" text="ID" />
+                  <TableColumn fx:id="colIme" prefWidth="256.0" text="Ime" />
+                  <TableColumn fx:id="colCijena" prefWidth="88.0" text="Cijena" />
+                  <TableColumn fx:id="colSerijski" prefWidth="323.0" text="Serijski Broj" />
+              </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+          </TableView>
+   </center>
+</BorderPane>

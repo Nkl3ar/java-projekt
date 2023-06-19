@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ftutic.itoprema.InsertMouseController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" text="Ime:" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" right="113.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tbIme" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets right="29.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="Cijena:">
+               <HBox.margin>
+                  <Insets left="5.0" right="101.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tbCijena" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets right="29.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="Serijski Broj Extension:">
+               <HBox.margin>
+                  <Insets left="5.0" right="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tbSerialExt" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets right="29.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="Ime Senzora:">
+               <HBox.margin>
+                  <Insets left="5.0" right="71.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tbSensorName" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets right="29.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="DPI:">
+               <HBox.margin>
+                  <Insets left="5.0" right="117.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tbDpi" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets right="29.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="330.0" prefHeight="100.0" prefWidth="200.0" spacing="54.0">
+         <children>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#add" text="Spremi" />
+            <Button fx:id="btnDelete" layoutX="150.0" layoutY="31.0" mnemonicParsing="false" onAction="#returnToOriginalView" text="Odustani" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
