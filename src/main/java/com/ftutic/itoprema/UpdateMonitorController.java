@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class UpdateMonitorController implements returnToOriginalView {
+public class UpdateMonitorController implements returnToOriginalView, changeView {
 
     @FXML
     private Button btnDelete;
@@ -42,14 +42,7 @@ public class UpdateMonitorController implements returnToOriginalView {
 
     @FXML
     public void returnToOriginalView() throws IOException {
-        Stage stage = (Stage) tbIme.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("it-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 679, 496);
-        stage.setTitle("IT Aplikacija");
-        stage.setScene(scene);
-        stage.setMinHeight(535);
-        stage.setMinWidth(696);
-        stage.show();
+        new ITController().changeView((Stage) tbIme.getScene().getWindow());
     }
 
 
@@ -129,5 +122,17 @@ public class UpdateMonitorController implements returnToOriginalView {
 
 
     }
+    public UpdateMonitorController(){}
 
+    @Override
+    public void changeView(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("update-monitor.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 334, 400);
+        stage.setTitle("Ažuriranje monitora");
+        stage.setScene(scene);
+        stage.setMinHeight(360);
+        stage.setMinWidth(430);
+        stage.show();
+
+    }
 }

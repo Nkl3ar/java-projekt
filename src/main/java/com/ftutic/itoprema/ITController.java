@@ -9,41 +9,25 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ITController {
+public class ITController implements changeView {
+
+    public ITController(){}
+
+
 
     @FXML
     public void update() throws IOException{
+        Stage stage = (Stage) btnAddMis.getScene().getWindow();
         ui.selectedUredaj = table.getSelectionModel().getSelectedItem();
 
         if(ui.selectedUredaj instanceof Tipkovnica){
-            Stage stage = (Stage) btnAddMis.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("update-keyboard.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-            stage.setTitle("Ažuriranje tipkovnice");
-            stage.setScene(scene);
-            stage.setMinHeight(360);
-            stage.setMinWidth(430);
-            stage.show();
+            new UpdateKeyboardController().changeView(stage);
         }
         else if(ui.selectedUredaj instanceof Mis){
-            Stage stage = (Stage) btnAddMis.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("update-mouse.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-            stage.setTitle("Ažuriranje miša");
-            stage.setScene(scene);
-            stage.setMinHeight(360);
-            stage.setMinWidth(430);
-            stage.show();
+            new UpdateMouseController().changeView(stage);
         }
         else if(ui.selectedUredaj instanceof Monitor){
-            Stage stage = (Stage) btnAddMis.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("update-monitor.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-            stage.setTitle("Ažuriranje monitora");
-            stage.setScene(scene);
-            stage.setMinHeight(360);
-            stage.setMinWidth(430);
-            stage.show();
+            new UpdateMonitorController().changeView(stage);
         }
 
     }
@@ -51,37 +35,19 @@ public class ITController {
     @FXML
     public void addMouse() throws IOException {
         Stage stage = (Stage) btnAddMis.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("insert-mouse.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-        stage.setTitle("Dodavanje miša");
-        stage.setScene(scene);
-        stage.setMinHeight(360);
-        stage.setMinWidth(430);
-        stage.show();
+        new InsertMouseController().changeView(stage);
     }
 
     @FXML
     public void addMonitor() throws IOException {
         Stage stage = (Stage) btnAddMis.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("insert-monitor.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-        stage.setTitle("Dodavanje monitora");
-        stage.setScene(scene);
-        stage.setMinHeight(360);
-        stage.setMinWidth(430);
-        stage.show();
+        new InsertMonitorController().changeView(stage);
     }
 
     @FXML
     public void addKeyboard() throws IOException {
         Stage stage = (Stage) btnAddMis.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("insert-keyboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 334, 400);
-        stage.setTitle("Dodavanje tipkovnice");
-        stage.setScene(scene);
-        stage.setMinHeight(360);
-        stage.setMinWidth(430);
-        stage.show();
+        new InsertKeyboardController().changeView(stage);
     }
 
 
@@ -256,5 +222,15 @@ public class ITController {
     private TextField tbCijena;
 
 
+    @Override
+    public void changeView(Stage stage) throws IOException {
 
+        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("it-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 679, 496);
+        stage.setTitle("IT Aplikacija");
+        stage.setScene(scene);
+        stage.setMinHeight(535);
+        stage.setMinWidth(696);
+        stage.show();
+    }
 }

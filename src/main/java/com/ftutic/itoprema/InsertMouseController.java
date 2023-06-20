@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class InsertMouseController implements returnToOriginalView {
+public class InsertMouseController implements returnToOriginalView, changeView {
 
     @FXML
     private Button btnDelete;
@@ -35,14 +35,7 @@ public class InsertMouseController implements returnToOriginalView {
 
     @FXML
     public void returnToOriginalView() throws IOException {
-        Stage stage = (Stage) tbIme.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("it-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 679, 496);
-        stage.setTitle("IT Aplikacija");
-        stage.setScene(scene);
-        stage.setMinHeight(535);
-        stage.setMinWidth(696);
-        stage.show();
+        new ITController().changeView((Stage) tbIme.getScene().getWindow());
     }
 
 
@@ -130,6 +123,21 @@ public class InsertMouseController implements returnToOriginalView {
 
 
 
+
+
     }
 
+    public InsertMouseController(){}
+
+    @Override
+    public void changeView(Stage stage) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(ITApplication.class.getResource("insert-mouse.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 334, 400);
+        stage.setTitle("Dodavanje miša");
+        stage.setScene(scene);
+        stage.setMinHeight(360);
+        stage.setMinWidth(430);
+        stage.show();
+    }
 }
