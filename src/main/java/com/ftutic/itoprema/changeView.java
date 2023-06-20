@@ -6,5 +6,5 @@ import java.io.IOException;
 
 public interface changeView {
 
-    public void changeView(Stage stage) throws IOException;
+    void changeView(Stage stage) throws IOException;
 }
